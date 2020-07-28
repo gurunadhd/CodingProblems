@@ -22,24 +22,19 @@ namespace _30daysofcode
 		public static Node RemoveDuplicates(Node head)
 		{
 			//Write your code here
-			Node current_head = head;
-			Node current = head;
-
-			while (current.next != null)
-			{
-				if (current.data != current.next.data)
-				{
-					current = current.next;
-				}
-				else
-				{
-					current.data = current.next.data;
-					current.next = current.next.next;
-					
-				}
+			if(head == null || head.next == null){
+				return head;
 			}
-
-			return current_head;
+			if (head.data == head.next.data)
+			{
+				head.next = head.next.next;
+				RemoveDuplicates(head);
+			}
+			else
+			{
+				RemoveDuplicates(head.next);
+			}
+			return head;
 		}
 
 		public static Node insert(Node head, int data)
