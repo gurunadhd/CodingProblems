@@ -28,6 +28,16 @@ namespace _30daysofcode.Other_programs
 			Console.WriteLine("print pattern string");
 			string pattern = Console.ReadLine();
 
+			bool same_chars = true;
+			for (int c = 1; c < pattern.Length; c++)
+			{
+				if(pattern[c]!= pattern[c-1])
+                {
+					same_chars = false;
+					break;
+				}
+			}
+			
 			List<int> indexes = new List<int>();
 			int i=0;
 			while(i<=T.Length-pattern.Length)
@@ -35,7 +45,14 @@ namespace _30daysofcode.Other_programs
 				if (match_pattern(T.Substring(i, pattern.Length), pattern))
 				{
 					indexes.Add(i);
-					i = i + pattern.Length;
+                    if (same_chars)
+                    {
+						i++;
+                    }
+                    else
+                    {
+						i = i + pattern.Length;
+					}					
 					
 				}
                 else
