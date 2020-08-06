@@ -28,6 +28,7 @@ namespace _30daysofcode.Other_programs
 			Console.WriteLine("print pattern string");
 			string pattern = Console.ReadLine();
 
+			//see if all characters are same in the pattern
 			bool same_chars = true;
 			for (int c = 1; c < pattern.Length; c++)
 			{
@@ -51,7 +52,7 @@ namespace _30daysofcode.Other_programs
                     }
                     else
                     {
-						i = i + pattern.Length;
+						i = i + pattern.Length; //increment to the next index after the found pattern
 					}					
 					
 				}
