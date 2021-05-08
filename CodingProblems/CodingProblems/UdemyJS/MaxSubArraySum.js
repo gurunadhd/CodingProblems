@@ -20,6 +20,9 @@
 function MaxSubArraySum(arr,num){
     let maxSum=0,tempSum=0
 
+    if(num>arr.length)
+        return null
+
     for(let i=0;i+num<=arr.length;i++){
         if(tempSum==0){
             for(let j=i;j<i+num;j++){
@@ -37,4 +40,4 @@ function MaxSubArraySum(arr,num){
     return maxSum
 }
 
-console.log(MaxSubArraySum([1,3,5,6,7,8,2,3,100],3))
+console.log(MaxSubArraySum([2,3],3))
