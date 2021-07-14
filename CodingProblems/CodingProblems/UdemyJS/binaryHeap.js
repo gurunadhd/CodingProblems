@@ -30,23 +30,24 @@ class binaryHeap{
             var left_index = 1
             var right_index = 2
             while(true){
+                var swapIndex = -1
                 if(left_index<=this.values.length-1 && this.values[parent_index]<this.values[left_index]){
-                    var temp = this.values[left_index]
-                    this.values[left_index] = this.values[parent_index]
+                    swapIndex = left_index
+                }
+                if(right_index<=this.values.length-1 && this.values[parent_index]<this.values[right_index]){
+                    if(left_index<=this.values.length-1 && this.values[right_index]>this.values[left_index])
+                        swapIndex = right_index
+                }
+                if (swapIndex==-1) break
+                else{
+                    var temp = this.values[swapIndex]
+                    this.values[swapIndex] = this.values[parent_index]
                     this.values[parent_index] = temp
-                    parent_index = left_index
+                    parent_index = swapIndex
                     left_index = 2*parent_index+1
                     right_index = 2*parent_index+2
                 }
-                else if(right_index<=this.values.length-1 && this.values[parent_index]<this.values[right_index]){
-                    var temp = this.values[right_index]
-                    this.values[right_index] = this.values[parent_index]
-                    this.values[parent_index] = temp
-                    parent_index = right_index
-                    left_index = 2*parent_index+1
-                    right_index = 2*parent_index+2
-                }
-                else break
+                
             }
             return returnValue
         }
@@ -55,15 +56,13 @@ class binaryHeap{
 
 myheap = new binaryHeap()
 console.log(myheap)
-console.log(myheap.insert(1))
+
 console.log(myheap.insert(2))
-console.log(myheap.insert(3))
 console.log(myheap.insert(4))
-console.log(myheap.insert(32))
-console.log(myheap.insert(-32))
-console.log(myheap.insert(23))
-console.log(myheap.insert(44))
-console.log(myheap.insert(-32))
-console.log(myheap.insert(30))
+console.log(myheap.insert(3))
+console.log(myheap.insert(1))
+console.log(myheap.insert(10))
+console.log(myheap.insert(-1))
+console.log(myheap.insert(11))
 console.log(myheap.extractMax())
 console.log(myheap)
