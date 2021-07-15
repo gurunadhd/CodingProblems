@@ -11,7 +11,7 @@ class binaryHeap{
             this.values.push(val)
             var parent_index = Math.floor((this.values.length-2)/2)
             var current_index= this.values.length-1
-            while(this.values[current_index]>=this.values[parent_index]){
+            while(parent_index>=0 && this.values[current_index]>=this.values[parent_index]){
                 this.values[current_index]=this.values[parent_index]
                 this.values[parent_index] = val
                 current_index = parent_index
